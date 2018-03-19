@@ -1,0 +1,31 @@
+{
+  "name": "dictionary-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "App.js",
+  "scripts": {
+    "start": "concurrently \"webpack -d --watch\" \"nodemon build/App.bundle.js\"",
+    "build": "webpack -p"
+  },
+  "author": "4rtHurB",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "concurrently": "^3.5.0",
+    "nodemon": "^1.12.1",
+    "path": "^0.12.7",
+    "webpack": "^3.8.1",
+    "webpack-node-externals": "^1.6.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.2",
+    "morgan": "^1.9.0",
+    "sequelize-cli": "^4.0.0"
+  }
+}
