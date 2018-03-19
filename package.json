@@ -26,6 +26,8 @@
     "dotenv": "^5.0.1",
     "express": "^4.16.2",
     "morgan": "^1.9.0",
+    "mysql2": "^1.5.3",
+    "sequelize": "^4.37.2",
     "sequelize-cli": "^4.0.0"
   }
 }
