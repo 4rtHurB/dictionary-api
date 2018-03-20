@@ -1,5 +1,6 @@
 import express from 'express';
 import Words from '../db/models/Words';
+import {Op} from 'sequelize';
 const router = express.Router();
 
 router.post('/words', (req, res) => {
@@ -11,7 +12,17 @@ router.post('/words', (req, res) => {
 });
 
 router.get('/words', (req, res) => {
-  Words.findAll().then(words => {
+  const search = req.query.search || '';
+
+  const searchCondition = {
+    where: {
+      word: {
+        [Op.like]: `${search}%`,
+      }
+    }
+  };
+
+  Words.findAll(searchCondition).then(words => {
     res.send(200, words);
   });
 });
@@ -26,6 +37,7 @@ router.get('/words/:id', (req, res) => {
 
 router.delete('/words/:id', (req, res) => {
   const findByID = { where: {id: req.params.id} };
+
   Words.findOne(findByID).then(word => {
     Words.destroy(findByID);
     res.send(200, word);
@@ -34,6 +46,7 @@ router.delete('/words/:id', (req, res) => {
 
 router.put('/words/:id', (req, res) => {
   const findByID = { where: {id: req.params.id} };
+
   Words.update(req.body,findByID);
   Words.findOne(findByID).then(word => {
     res.send(200, word);
