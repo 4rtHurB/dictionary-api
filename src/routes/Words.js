@@ -5,7 +5,10 @@ const router = express.Router();
 
 router.post('/words', (req, res) => {
   Words.findOrCreate({
-    where: {word: req.body.word}
+    where: {
+      word: req.body.word,
+      id_language: req.body.id_language
+    }
   }).spread((word, created) => {
     res.send(201, word);
   });
@@ -13,12 +16,15 @@ router.post('/words', (req, res) => {
 
 router.get('/words', (req, res) => {
   const search = req.query.search || '';
+  const language = req.query.language || '';
 
   const searchCondition = {
     where: {
       word: {
-        [Op.like]: `${search}%`,
-      }
+        [Op.like]: `${search}%`
+      }, ...(language === '' ? {} : {
+        id_language: language
+      })
     }
   };
 
@@ -51,6 +57,11 @@ router.put('/words/:id', (req, res) => {
   Words.findOne(findByID).then(word => {
     res.send(200, word);
   });
+});
+
+router.get('/words/:id', (req, res) => {
+  const language = req.query.language || '';
+  const translate = req.query.translate || '';
 });
 
 export default router;

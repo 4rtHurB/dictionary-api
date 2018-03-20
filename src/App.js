@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
 import wordsRouter from './routes/Words';
+import languagesRoutes from './routes/Languages';
 import enableCORS from './middleware/cors';
 
 dotenv.load();
@@ -15,6 +16,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/api', wordsRouter);
+app.use('/api', languagesRoutes);
 
 app.get('*', (req, res) => {
   res.send(200, 'Hello from Dictionary-API');
