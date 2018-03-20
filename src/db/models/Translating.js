@@ -9,7 +9,11 @@ const Translating = Sequelize.define('translating', {
   id_language: {
     type: DataTypes.INTEGER,
     allowNull: false
-  }
+  },
+  id__translate_word: {
+    type: DataTypes.INTEGER,
+    allowNull: false
+  },
 });
 
 export default Translating;

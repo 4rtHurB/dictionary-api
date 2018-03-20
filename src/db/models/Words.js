@@ -10,7 +10,11 @@ const Words = Sequelize.define('words', {
   meaning: {
     type: DataTypes.STRING,
     allowNull: true
-  }
+  },
+  id_language: {
+    type: DataTypes.INTEGER,
+    allowNull: false
+  },
 });
 
 export default Words;
