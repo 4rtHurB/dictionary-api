@@ -1,7 +1,9 @@
 import express from 'express';
-import Languages from '../db/models/Languages';
+import Models from '../db/models';
 import {Op} from 'sequelize';
+
 const router = express.Router();
+const Languages = Models.Languages;
 
 router.post('/languages', (req, res) => {
   Languages.findOrCreate({
