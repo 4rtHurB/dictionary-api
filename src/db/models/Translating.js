@@ -10,7 +10,7 @@ const Translating = Sequelize.define('translating', {
     type: DataTypes.INTEGER,
     allowNull: false
   },
-  id__translate_word: {
+  id_translate_word: {
     type: DataTypes.INTEGER,
     allowNull: false
   },
