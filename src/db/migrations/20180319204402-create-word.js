@@ -17,6 +17,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: true,
       },
+      id_language: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

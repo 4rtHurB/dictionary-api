@@ -16,6 +16,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
+      id_translate_word: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
